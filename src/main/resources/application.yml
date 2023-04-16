@@ -1,0 +1,23 @@
+server:
+  port: 8000
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource:
+    hikari:
+      driver-class-name: org.sqlite.JDBC
+      jdbc-url: jdbc:sqlite:/Applications/iu/sqlite/test.db
+      connection-timeout: 30000
+      maximum-pool-size: 10
+      max-lifetime: 1800000
+      pool-name: HikariCP
+      read-only: false
+#      connection-test-query: SELECT 1 FROM DUAL
+
+#logging
+logging:
+  level:
+    root: debug
