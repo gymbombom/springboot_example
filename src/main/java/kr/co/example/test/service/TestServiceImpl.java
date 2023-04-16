@@ -12,6 +12,11 @@ public class TestServiceImpl implements TestService {
     @Autowired
     TestMapper testMapper;
 
+    /**
+     * DB select 테스트 Service
+     *
+     * @return
+     */
     public Map<String, Object> selectTest02() {
         return testMapper.selectTest02();
     }

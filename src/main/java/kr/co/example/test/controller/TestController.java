@@ -15,6 +15,12 @@ public class TestController {
     @Autowired
     TestService testService;
 
+    /**
+     * jsp Mapping 테스트
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value="/test01", method={RequestMethod.GET, RequestMethod.POST})
     public String ajax01 (Model model)
     {
@@ -23,6 +29,7 @@ public class TestController {
 
     /**
      * DB 연결 테스트
+     *
      * @param model
      * @return
      */
