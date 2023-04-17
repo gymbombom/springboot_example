@@ -16,24 +16,13 @@ import java.io.StringWriter;
 
 @Controller
 public class AjaxController {
-    /**
-     *
-     * @param model
-     * @return
-     */
+
     @RequestMapping(value="/ajax01", method={RequestMethod.GET, RequestMethod.POST})
     public String ajax01 (Model model)
     {
         return "/ajax/ajax01";
     }
 
-    /**
-     *
-     * @param ajaxVO
-     * @param model
-     * @return
-     * @throws Exception
-     */
     @RequestMapping(value = "/ajax01Submit", method = {RequestMethod.POST})
     public ResponseEntity<String> ajax01Submit(@ModelAttribute("ajax01VO") Ajax01VO ajax01VO, ModelMap model) throws Exception {
         ModelMap modelMap = new ModelMap();
@@ -59,5 +48,8 @@ public class AjaxController {
 
         return new ResponseEntity<String>(sw.toString(), responseHeaders, HttpStatus.CREATED);
     }
+
+//    ===================================================================================================
+
 
 }
