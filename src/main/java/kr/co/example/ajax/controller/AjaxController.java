@@ -8,11 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.StringWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class AjaxController {
@@ -50,6 +50,26 @@ public class AjaxController {
     }
 
 //    ===================================================================================================
+    @RequestMapping(value = "/ajax02", method = {RequestMethod.GET, RequestMethod.POST})
+    public String ajax02(Model model) {
+        return "/ajax/ajax02";
+    }
 
+    @RequestMapping(value="/ajax02Submit", method = {RequestMethod.POST})
+    @ResponseBody
+    public HashMap<String, Object> ajax02Submit(@RequestParam Map<String, Object> map) throws Exception {
+        HashMap<String, Object> resultMap = new HashMap<String, Object>();
+
+        resultMap.put("success", true);
+        //resultMap.put("success", false);
+
+        resultMap.put("korName", map.get("korName"));
+        resultMap.put("engName", map.get("engName"));
+        resultMap.put("age", map.get("age"));
+        resultMap.put("height", map.get("height"));
+        resultMap.put("weight", map.get("weight"));
+
+        return resultMap;
+    }
 
 }
