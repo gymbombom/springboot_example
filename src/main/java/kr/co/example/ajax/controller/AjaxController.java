@@ -2,6 +2,7 @@ package kr.co.example.ajax.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.co.example.ajax.model.Ajax01VO;
+import kr.co.example.ajax.model.Ajax03VO;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -71,5 +72,31 @@ public class AjaxController {
 
         return resultMap;
     }
+
+    //    ===================================================================================================
+
+    @RequestMapping(value="/ajax03", method={RequestMethod.GET,RequestMethod.POST})
+    public String ajax03 (Model model)
+    {
+        return "/ajax/ajax03";
+    }
+
+    @RequestMapping(value="/ajax03Submit", method={RequestMethod.POST})
+    @ResponseBody
+    public HashMap<String, Object> ajax03Submit( @ModelAttribute Ajax03VO ajax03VO) throws Exception {
+        HashMap<String, Object> resultMap = new HashMap<String, Object>();
+
+        resultMap.put("success", true);
+        //resultMap.put("success", false);
+
+        resultMap.put("korName", ajax03VO.getKorName());
+        resultMap.put("engName", ajax03VO.getEngName());
+        resultMap.put("age", ajax03VO.getAge());
+        resultMap.put("height", ajax03VO.getHeight());
+        resultMap.put("weight", ajax03VO.getWeight());
+
+        return resultMap;
+    }
+
 
 }
