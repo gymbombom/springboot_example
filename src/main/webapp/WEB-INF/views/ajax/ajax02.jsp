@@ -14,10 +14,14 @@
 </script>
 
 <script>
-    var submit = function(){
+    const submit = function(){
+        let formSerialize = $("#form").serialize();
+
+        console.log(formSerialize);
+
         $.ajax({
             url : "<c:url value='/ajax02Submit'/>"
-            , data : $("#form").serialize()
+            , data : formSerialize
             , type : "POST"
             , dataType : "json"
             , async	: true
