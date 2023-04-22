@@ -7,19 +7,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>엑셀 다운로드 Sample View</title>
     <script>
-        const fnExcelDownload = function(){
+        const fnExcelDownload01 = function(){
             document.excelForm.action = "<c:url value='excel01Download'/>";
             document.excelForm.submit();
+        }
 
-            //해당 코드도 다운로드 가능
-            //location.href= "<c:url value='excel01Download'/>";
+        const fnExcelDownload02 = function(){
+            location.href= "<c:url value='excel01Download'/>";
+        }
+
+        const fnExcelDownload03 = function(){
+
         }
     </script>
 </head>
 
 <body>
-<h2>엑셀다운로드샘플</h2>
+<h2>JSP 엑셀다운로드샘플</h2>
 <form id="excelForm" name="excelForm"></form>
-<button type="button"  onclick="fnExcelDownload();">엑셀 다운로드 샘플</button>
+<button type="button"  onclick="fnExcelDownload01();">엑셀 다운로드 샘플1</button>
+<button type="button"  onclick="fnExcelDownload02();">엑셀 다운로드 샘플2</button>
 </body>
 </html>

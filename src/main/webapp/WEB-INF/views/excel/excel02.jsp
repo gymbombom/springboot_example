@@ -7,19 +7,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>POI 엑셀 다운로드 Sample View</title>
     <script>
-        const fnExcelDownload = function(){
+        const fnExcelDownload01 = function(){
             document.excelForm.action = "<c:url value='excel02Download'/>";
             document.excelForm.submit();
+        }
 
-            //해당 코드도 다운로드 가능
-            //location.href= "<c:url value='excel02_download'/>";
+        const fnExcelDownload02 = function(){
+            location.href= "<c:url value='excel02Download'/>";
         }
     </script>
 </head>
 
 <body>
 <h2>POI 엑셀다운로드샘플</h2>
-<form id="excelForm" name="excelForm"></form>
-<button type="button"  onclick="fnExcelDownload();">POI 엑셀 다운로드</button>
+<form id="excelForm" name="excelForm">
+</form>
+<button type="button"  onclick="fnExcelDownload01();">POI 엑셀 다운로드1</button>
+<button type="button"  onclick="fnExcelDownload02();">POI 엑셀 다운로드2</button>
 </body>
 </html>
