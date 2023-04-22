@@ -50,7 +50,7 @@ public class AjaxController {
         return new ResponseEntity<String>(sw.toString(), responseHeaders, HttpStatus.CREATED);
     }
 
-//    ===================================================================================================
+    //    =======================================================================================================================================
     @RequestMapping(value = "/ajax02", method = {RequestMethod.GET, RequestMethod.POST})
     public String ajax02(Model model) {
         return "/ajax/ajax02";
@@ -73,7 +73,7 @@ public class AjaxController {
         return resultMap;
     }
 
-    //    ===================================================================================================
+    //    =======================================================================================================================================
 
     @RequestMapping(value="/ajax03", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax03 (Model model)
@@ -97,6 +97,9 @@ public class AjaxController {
 
         return resultMap;
     }
+
+    //    =======================================================================================================================================
+
 
 
 }
