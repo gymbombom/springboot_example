@@ -53,7 +53,7 @@ public class AjaxController {
         return new ResponseEntity<String>(sw.toString(), responseHeaders, HttpStatus.CREATED);
     }
 
-    //    =======================================================================================================================================
+    //=======================================================================================================================================
     @RequestMapping(value = "/ajax02", method = {RequestMethod.GET, RequestMethod.POST})
     public String ajax02(Model model) {
         return "ajax/ajax02";
@@ -76,7 +76,7 @@ public class AjaxController {
         return resultMap;
     }
 
-    //    =======================================================================================================================================
+    //=======================================================================================================================================
 
     @RequestMapping(value="/ajax03", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax03 (Model model)
@@ -101,7 +101,7 @@ public class AjaxController {
         return resultMap;
     }
 
-    //    =======================================================================================================================================
+    //=======================================================================================================================================
 
     @RequestMapping(value = "/ajax04", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax04 (Model model)
@@ -127,7 +127,7 @@ public class AjaxController {
         return resultMap;
     }
 
-    //    =======================================================================================================================================
+    //=======================================================================================================================================
 
     @RequestMapping(value="/ajax05", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax05 (Model model)
@@ -152,7 +152,7 @@ public class AjaxController {
         return resultMap;
     }
 
-    //    =======================================================================================================================================
+    //=======================================================================================================================================
 
     @RequestMapping(value="/ajax06", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax06 (Model model)
@@ -193,7 +193,7 @@ public class AjaxController {
         return resultMap;
     }
 
-    //    =======================================================================================================================================
+    //=======================================================================================================================================
 
     @RequestMapping(value="/ajax07", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax07 (Model model)
@@ -215,7 +215,7 @@ public class AjaxController {
         return resultMap;
     }
 
-    //    =======================================================================================================================================
+    //=======================================================================================================================================
 
     @RequestMapping(value="/ajax08", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax08 (Model model)
