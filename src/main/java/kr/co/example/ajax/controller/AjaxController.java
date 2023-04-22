@@ -24,7 +24,7 @@ public class AjaxController {
     @RequestMapping(value="/ajax01", method={RequestMethod.GET, RequestMethod.POST})
     public String ajax01 (Model model)
     {
-        return "/ajax/ajax01";
+        return "ajax/ajax01";
     }
 
     @RequestMapping(value = "/ajax01Submit", method = {RequestMethod.POST})
@@ -56,7 +56,7 @@ public class AjaxController {
     //    =======================================================================================================================================
     @RequestMapping(value = "/ajax02", method = {RequestMethod.GET, RequestMethod.POST})
     public String ajax02(Model model) {
-        return "/ajax/ajax02";
+        return "ajax/ajax02";
     }
 
     @RequestMapping(value="/ajax02Submit", method = {RequestMethod.POST})
@@ -81,7 +81,7 @@ public class AjaxController {
     @RequestMapping(value="/ajax03", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax03 (Model model)
     {
-        return "/ajax/ajax03";
+        return "ajax/ajax03";
     }
 
     @RequestMapping(value="/ajax03Submit", method={RequestMethod.POST})
@@ -106,7 +106,7 @@ public class AjaxController {
     @RequestMapping(value = "/ajax04", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax04 (Model model)
     {
-        return "/ajax/ajax04";
+        return "ajax/ajax04";
     }
 
     @RequestMapping(value="/ajax04Submit", method={RequestMethod.POST})
@@ -132,7 +132,7 @@ public class AjaxController {
     @RequestMapping(value="/ajax05", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax05 (Model model)
     {
-        return "/ajax/ajax05";
+        return "ajax/ajax05";
     }
 
     @RequestMapping(value="/ajax05Submit", method={RequestMethod.POST})
@@ -157,7 +157,7 @@ public class AjaxController {
     @RequestMapping(value="/ajax06", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax06 (Model model)
     {
-        return "/ajax/ajax06";
+        return "ajax/ajax06";
     }
 
     @RequestMapping(value="/ajax06Submit", method={RequestMethod.POST})
@@ -198,7 +198,7 @@ public class AjaxController {
     @RequestMapping(value="/ajax07", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax07 (Model model)
     {
-        return "/ajax/ajax07";
+        return "ajax/ajax07";
     }
 
     @RequestMapping(value="/ajax07Submit", method={RequestMethod.POST})
@@ -220,7 +220,7 @@ public class AjaxController {
     @RequestMapping(value="/ajax08", method={RequestMethod.GET,RequestMethod.POST})
     public String ajax08 (Model model)
     {
-        return "/ajax/ajax08";
+        return "ajax/ajax08";
     }
 
     @RequestMapping(value="/ajax08Submit", method={RequestMethod.POST})
