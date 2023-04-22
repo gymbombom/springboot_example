@@ -23,11 +23,11 @@
                 dataType: "json",
                 success: function (result) {
                     if (result.success) {
-                        alert("성공");
+                        console.log(result);
+                        alert("success");
                     } else {
-                        alert("실패");
+                        alert("fail");
                     }
-                    console.log(result);
                 },
                 error: function (request, status, error) {
                     alert(error);
@@ -39,8 +39,8 @@
 <body>
 <p>multipart/form-data Ajax호출</p>
 <form id="ajax01VO" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-    한글이름: <input type="text" name="korName" value="홍길동">
-    영문이름: <input type="text" name="engName" value="Hong Kil Dong">
+    한글이름: <input type="text" name="korName" value="테스트">
+    영문이름: <input type="text" name="engName" value="test">
     나이: <input type="number" name="age" value=20>
     키: <input type="text" name="height" value="180.2">
     몸무게: <input type="number" name="weight" value=68.3>
