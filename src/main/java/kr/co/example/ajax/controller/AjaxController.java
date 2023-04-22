@@ -3,6 +3,7 @@ package kr.co.example.ajax.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.co.example.ajax.model.Ajax01VO;
 import kr.co.example.ajax.model.Ajax03VO;
+import kr.co.example.ajax.model.Ajax08VO;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -214,4 +215,33 @@ public class AjaxController {
         return resultMap;
     }
 
+    //    =======================================================================================================================================
+
+    @RequestMapping(value="/ajax08", method={RequestMethod.GET,RequestMethod.POST})
+    public String ajax08 (Model model)
+    {
+        return "/ajax/ajax08";
+    }
+
+    @RequestMapping(value="/ajax08Submit", method={RequestMethod.POST})
+    @ResponseBody
+    public HashMap<String, Object> ajax08Submit(@RequestBody Ajax08VO ajax08VO) throws Exception {
+        HashMap<String, Object> resultMap = new HashMap<String, Object>();
+        List<Ajax08VO> returnList = new ArrayList<>();
+
+        System.out.println(ajax08VO.getKorName());
+        System.out.println(ajax08VO.getSubAjax08VO().getKorName());
+
+        for (int i = 0 ; i < ajax08VO.getSubAjax08VOList().size() ; i++){
+            returnList.add(ajax08VO.getSubAjax08VOList().get(i));
+        }
+
+        resultMap.put("success", true);
+        //resultMap.put("success", false);
+
+        resultMap.put("subAjax08VO", ajax08VO.getSubAjax08VO());
+        resultMap.put("subAjax08List", returnList);
+
+        return resultMap;
+    }
 }
