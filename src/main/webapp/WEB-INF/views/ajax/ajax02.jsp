@@ -27,10 +27,10 @@
             , async	: true
             , success : function(data) {
                 console.log(data);
-                alert(data.korName);
+                alert("success");
             }
             , error : function(res) {
-                alert("에러가 발생하였습니다.");
+                alert(res);
                 return false;
             }
         });
@@ -39,8 +39,8 @@
     <body>
         <p>Form을 Ajax로 전송 => controller에서 map으로 처리</p>
         <form id="form" name="form">
-            한글이름: <input type="text" name="korName" value="홍길동">
-            영문이름: <input type="text" name="engName" value="Hong Kil Dong">
+            한글이름: <input type="text" name="korName" value="테스트">
+            영문이름: <input type="text" name="engName" value="Test">
             나이: <input type="number" name="age" value=20>
             키: <input type="text" name="height" value="180.2">
             몸무게: <input type="number" name="weight" value=68.3>
