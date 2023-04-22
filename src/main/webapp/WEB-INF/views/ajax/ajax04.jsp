@@ -14,8 +14,8 @@
 </script>
 
 <script>
-    var submit = function(){
-        var form = {
+    const submit = function(){
+        let form = {
             korName: "테스트",
             engName: "test",
             age: 20,
@@ -36,7 +36,6 @@
                 alert("error");
             }
         });
-
     }
 </script>
 <body>
