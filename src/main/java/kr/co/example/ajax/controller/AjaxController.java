@@ -12,7 +12,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -146,6 +148,47 @@ public class AjaxController {
         resultMap.put("height", map.get("height"));
         resultMap.put("weight", map.get("weight"));
 
+        return resultMap;
+    }
+
+    //    =======================================================================================================================================
+
+    @RequestMapping(value="/ajax06", method={RequestMethod.GET,RequestMethod.POST})
+    public String ajax06 (Model model)
+    {
+        return "/ajax/ajax06";
+    }
+
+    @RequestMapping(value="/ajax06Submit", method={RequestMethod.POST})
+    @ResponseBody
+    public HashMap<String, Object> ajax06Submit( @RequestBody List<Map<String, Object>> list) throws Exception {
+        HashMap<String, Object> resultMap = new HashMap<String, Object>();
+
+        resultMap.put("success", true);
+        //resultMap.put("success", false);
+
+        for(int i = 0; i < list.size(); i++) {
+            Map<String, Object> map = new HashMap<String, Object>();
+
+            if(i == 1) {
+                map = list.get(i);
+                resultMap.put("korName", map.get("korName"));
+                resultMap.put("engName", map.get("engName"));
+                resultMap.put("age", map.get("age"));
+                resultMap.put("height", map.get("height"));
+                resultMap.put("weight", map.get("weight"));
+            }
+        }
+
+        List<Map<String, Object>> returnList = new ArrayList<>();
+        for (int i = 0  ; i < list.size(); i++){
+            Map<String, Object> map = new HashMap<String, Object>();
+
+            map = list.get(i);
+            returnList.add(map);
+        }
+
+        resultMap.put("returnList", returnList);
         return resultMap;
     }
 
