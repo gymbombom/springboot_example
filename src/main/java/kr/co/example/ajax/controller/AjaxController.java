@@ -124,4 +124,29 @@ public class AjaxController {
         return resultMap;
     }
 
+    //    =======================================================================================================================================
+
+    @RequestMapping(value="/ajax05", method={RequestMethod.GET,RequestMethod.POST})
+    public String ajax05 (Model model)
+    {
+        return "/ajax/ajax05";
+    }
+
+    @RequestMapping(value="/ajax05Submit", method={RequestMethod.POST})
+    @ResponseBody
+    public HashMap<String, Object> ajax05Submit( @RequestBody Map<String, Object> map) throws Exception {
+        HashMap<String, Object> resultMap = new HashMap<String, Object>();
+
+        resultMap.put("success", true);
+        //resultMap.put("success", false);
+
+        resultMap.put("korName", map.get("korName"));
+        resultMap.put("engName", map.get("engName"));
+        resultMap.put("age", map.get("age"));
+        resultMap.put("height", map.get("height"));
+        resultMap.put("weight", map.get("weight"));
+
+        return resultMap;
+    }
+
 }
