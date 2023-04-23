@@ -67,7 +67,7 @@
                 alert(data.subAjax08VO.korName);
             }
             , error : function(res) {
-                alert("에러가 발생하였습니다.");
+                alert("error");
                 return false;
             }
         });
