@@ -244,4 +244,12 @@ public class AjaxController {
 
         return resultMap;
     }
+
+    //=======================================================================================================================================
+
+    @RequestMapping(value="/ajax09", method={RequestMethod.GET,RequestMethod.POST})
+    public String ajax09 (Model model)
+    {
+        return "ajax/ajax09";
+    }
 }
