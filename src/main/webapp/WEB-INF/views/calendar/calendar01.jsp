@@ -18,7 +18,12 @@
             calendar.on('dateClick', function(info) {
                 console.log(info);
             });
-            
+
+            calendar.on('eventClick', function(info){
+                console.log(info);
+                info.el.style.borderColor = 'red';
+            });
+
         });
 
         let renderCalendar = function(){
