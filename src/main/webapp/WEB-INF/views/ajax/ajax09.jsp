@@ -15,10 +15,10 @@
 </script>
 
 <script>
-    const submit = function(){
+    const fnPageChange = function(){
 
         $.ajax({
-            url : "<c:url value='/ajax01'/>"
+            url : "<c:url value='/ajax02'/>"
             , type : "GET"
             , dataType : "html"
             , async	: true
@@ -38,7 +38,7 @@
 <body>
     <div id="mainDiv">
         <p>ajax jsp 화면 호출 => 화면전환</p>
-        <button onclick="submit();">화면전환</button>
+        <button onclick="fnPageChange();">화면전환</button>
     </div>
 
 
