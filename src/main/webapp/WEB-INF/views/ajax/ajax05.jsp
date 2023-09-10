@@ -14,7 +14,7 @@
 </script>
 
 <script>
-    const submitWithJQuery = function(){
+    const submit = function(){
         let form = {
             korName: "테스트",
             engName: "test",
@@ -41,7 +41,42 @@
         });
     }
 
-    const submitWithJS = function(){
+    const submit2 = function(){
+        let url = "<c:url value='/ajax05Submit'/>";
+
+        let form = {
+            korName: "테스트",
+            engName: "test",
+            age: 20,
+            height : "180.2",
+            weight : 68.3
+        }
+
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(form),
+            headers: {
+                "Content-Type": 'application/json; charset=utf-8;',
+                "Accept" : "application/json"
+            }
+        })
+            .then(function(response) {
+                if (response.ok) {
+                    return response.json(); // Parse the response as JSON
+                } else {
+                    throw new Error("Error: " + response.status);
+                }
+            })
+            .then(function(data) {
+                console.log(data);
+                alert("success");
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    }
+
+    const submit3 = function(){
         let httpRequest = new XMLHttpRequest();
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState === XMLHttpRequest.DONE) { //success
@@ -71,6 +106,8 @@
 </script>
 <body>
 <p>JSON 문자열전송=> Controller에서 @requestBody로 받음</p>
-<button onclick="submitWithJS();">submit</button>
+<button onclick="submit();">submit</button>
+<button onclick="submit2();">submit2</button>
+<button onclick="submit3();">submit3</button>
 </body>
 </html>

@@ -13,7 +13,7 @@
     </script>
 
     <script>
-        const fn_submit = function () {
+        const submit = function(){
             $.ajax({
                 type: 'POST',
                 url: "<c:url value='/ajax01Submit'/>",
@@ -34,6 +34,80 @@
                 }
             });
         }
+
+        const submit2 = function(){
+            let ajax01VO = document.querySelector("#ajax01VO");
+            let formData = new FormData(ajax01VO);
+
+            $.ajax({
+                type: 'POST',
+                url: "<c:url value='/ajax01Submit'/>",
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                success: function (result) {
+                    if (result.success) {
+                        console.log(result);
+                        alert("success");
+                    } else {
+                        alert("fail");
+                    }
+                },
+                error: function (request, status, error) {
+                    alert(error);
+                }
+            });
+        }
+
+        const submit3 = function(){
+            let ajax01VO = document.querySelector("#ajax01VO");
+            let formData = new FormData(ajax01VO);
+            let url = "<c:url value='/ajax01Submit'/>";
+
+            fetch(url, {
+                method: 'POST',
+                body: new URLSearchParams(formData),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                    "Accept" : "application/json"
+                }
+            })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    console.log(data);
+                    alert("success");
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+        }
+
+        const submit4 = function(){
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) { //success
+                    if (xhr.status === 201) {
+                        let data = xhr.response;
+                        console.log(data);
+                        alert("success");
+                    } else {
+                        alert("fail");
+                    }
+                }
+            }
+
+            let ajax01VO = document.querySelector("#ajax01VO");
+            let formData = new FormData(ajax01VO);
+
+            xhr.open('POST', "<c:url value='/ajax01Submit'/>", true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8;');
+            xhr.responseType = "json";
+            xhr.send(new URLSearchParams(formData));
+        }
+
     </script>
 </head>
 <body>
@@ -44,7 +118,10 @@
     나이: <input type="number" name="age" value=20>
     키: <input type="text" name="height" value="180.2">
     몸무게: <input type="number" name="weight" value=68.3>
-    <button onclick="fn_submit();">submit</button>
+    <button onclick="submit();">submit</button>
+    <button onclick="submit2();">submit2</button>
+    <button onclick="submit3();">submit3</button>
+    <button onclick="submit4();">submit4</button>
 </form>
 </body>
 </html>

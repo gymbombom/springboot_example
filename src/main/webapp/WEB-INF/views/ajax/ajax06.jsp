@@ -55,9 +55,102 @@
             }
         });
     }
+
+    const submit2 = function(){
+        let url = "<c:url value='/ajax06Submit'/>"
+        let JSONArray = [];
+
+        let form1 = {
+            korName: "테스트1",
+            engName: "test1",
+            age: 20,
+            height : "180.2",
+            weight : 68.3
+        }
+        JSONArray.push(form1);
+
+        let form2 = {
+            korName: "테스트2",
+            engName: "test2",
+            age: 20,
+            height : "180.2",
+            weight : 68.3
+        }
+        JSONArray.push(form2);
+
+
+
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(JSONArray),
+            headers: {
+                "Content-Type": 'application/json; charset=utf-8;',
+                "Accept" : "application/json"
+            }
+        })
+            .then(function(response) {
+                if (response.ok) {
+                    return response.json(); // Parse the response as JSON
+                } else {
+                    throw new Error("Error: " + response.status);
+                }
+            })
+            .then(function(data) {
+                console.log(data);
+                alert("success");
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    }
+
+
+    const submit3 = function(){
+        let httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) { //success
+                if (httpRequest.status === 200) {
+                    let data = httpRequest.response;
+                    alert("success");
+                    console.log(data);
+                } else {
+                    alert("fail");
+                }
+            }
+        }
+
+
+        let JSONArray = [];
+
+        let form1 = {
+            korName: "테스트1",
+            engName: "test1",
+            age: 20,
+            height : "180.2",
+            weight : 68.3
+        }
+        JSONArray.push(form1);
+
+        let form2 = {
+            korName: "테스트2",
+            engName: "test2",
+            age: 20,
+            height : "180.2",
+            weight : 68.3
+        }
+        JSONArray.push(form2);
+
+        httpRequest.open('POST', "<c:url value='/ajax06Submit'/>", true);
+        httpRequest.setRequestHeader('Content-Type', 'application/json; charset=utf-8;');
+        httpRequest.responseType = "json";
+        httpRequest.send(JSON.stringify(JSONArray));
+    }
+
 </script>
 <body>
 <p>JsonArray 를 controller에서 처리</p>
 <button onclick="submit();">submit</button>
+<button onclick="submit2();">submit2</button>
+<button onclick="submit3();">submit3</button>
 </body>
 </html>

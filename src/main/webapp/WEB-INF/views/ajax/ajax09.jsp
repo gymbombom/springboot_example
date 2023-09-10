@@ -33,12 +33,38 @@
         });
     }
 
+    const fnPageChange2 = function(){
+        let url = "<c:url value='/ajax02'/>"
+
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                "Content-Type": 'application/json; charset=utf-8;'
+            }
+        })
+            .then(function(response) {
+                if (response.ok) {
+                    return response.text(); // Parse the response as text
+                } else {
+                    throw new Error("Error: " + response.status);
+                }
+            })
+            .then(function(data) {
+                document.querySelector("#mainDiv").removeChild;
+                document.querySelector("#mainDiv").innerHTML = data;
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    }
+
 
 </script>
 <body>
     <div id="mainDiv">
         <p>ajax jsp 화면 호출 => 화면전환</p>
         <button onclick="fnPageChange();">화면전환</button>
+        <button onclick="fnPageChange2();">화면전환2</button>
     </div>
 
 

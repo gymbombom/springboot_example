@@ -37,9 +37,84 @@
             }
         });
     }
+
+    const submit2 = function(){
+        let form = {
+            korName: "테스트",
+            engName: "test",
+            age: 20,
+            height : "180.2",
+            weight : 68.3
+        }
+
+        let formData = new URLSearchParams();
+        for (let key in form) {
+            formData.append(key, form[key]);
+        }
+
+        let url = "<c:url value='/ajax04Submit'/>";
+
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                "Content-Type": 'application/x-www-form-urlencoded; charset=UTF-8',
+                "Accept" : "application/json"
+            }
+        })
+            .then(function(response) {
+                if (response.ok) {
+                    return response.json(); // Parse the response as JSON
+                } else {
+                    throw new Error("Error: " + response.status);
+                }
+            })
+            .then(function(data) {
+                console.log(data);
+                alert("success");
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    }
+
+    const submit3 = function(){
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) { //success
+                if (xhr.status === 200) {
+                    let data = xhr.response;
+                    console.log(data);
+                    alert("success");
+                } else {
+                    alert("fail");
+                }
+            }
+        }
+
+        let form = {
+            korName: "테스트",
+            engName: "test",
+            age: 20,
+            height : "180.2",
+            weight : 68.3
+        }
+        let formData = new URLSearchParams();
+        for (let key in form) {
+            formData.append(key, form[key]);
+        }
+
+        xhr.open('POST', "<c:url value='/ajax03Submit'/>", true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8;');
+        xhr.setRequestHeader("Accept" , "application/json");
+        xhr.responseType = "json";
+        xhr.send(formData);
+    }
 </script>
 <body>
 <p>JsonObject로 Ajax전송 => Controller에서 Map으로 받음</p>
 <button onclick="submit();">submit</button>
+<button onclick="submit2();">submit2</button>
+<button onclick="submit3();">submit3</button>
 </body>
 </html>
